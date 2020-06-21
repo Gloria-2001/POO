@@ -5,9 +5,14 @@ using namespace std;
 
 class Fraccion{
     public:
+        // Atributos
         int numerador;
         int denominador;
+
+        // Constructor
         Fraccion(int,int);
+
+        // Metodos
         void initFraccion(int,int);
         Fraccion suma(Fraccion);
         Fraccion resta(Fraccion);
