@@ -20,14 +20,12 @@ public class FraccionesPOO{
         int dem = this.denominador * A.denominador;
         int num = (this.numerador*A.denominador) + (this.denominador*A.numerador);
         aux.initFraccion(num,dem);
-
         return aux;
     }
 
     public FraccionesPOO resta(FraccionesPOO A){
         int dem = this.denominador * A.denominador;
         int num = (this.numerador*A.denominador) - (this.denominador*A.numerador);
-
         return (new FraccionesPOO(num,dem));
     }
 
