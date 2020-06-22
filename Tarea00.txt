@@ -1,0 +1,19 @@
+Instalar el compilador de Java
+Leer el documento "AlgunosLenguajesDeProgramacion.pdf"
+Y por ultimo ver el video 'La Logica de la Programacion Orientada a Objetos explicada con Minecraft'
+Como recomendación, instalar el editor de textos VisualStudio Code
+
+Instalacion de Java:
+https://www.digitalocean.com/community/tutorials/instalar-java-en-ubuntu-con-apt-get-es
+Solo la sección de 'Instalando JRE/JDK por defecto'
+
+Video:
+https://www.youtube.com/watch?v=I848HdWjLMo
+
+Instalacion de Visual Studio Code:
+https://linuxize.com/post/how-to-install-visual-studio-code-on-ubuntu-18-04/
+
+NOTA: COMO RECOMENACIÓN, SIEMPRE EN LA PARTE QUE SE USA 'apt' SUSTITUIRLO POR 'apt-get', EJEMPLO:
+    sudo apt install paquete
+        Sustituyendo
+    sudo apt-get install paquete
