@@ -34,11 +34,11 @@ public class FraccionesPOO{
         System.out.print("/");
         System.out.println(this.denominador);
     }
-
     // Programa principal
     public static void main(String[] args){
         FraccionesPOO frac01 = new FraccionesPOO(4,5);
         FraccionesPOO frac02 = new FraccionesPOO(3,8);
+        FraccionesPOO frac03 = new FraccionesPOO(6,7);
         FraccionesPOO aux00;
 
         System.out.print("4/5 + 3/8 = ");
@@ -54,5 +54,8 @@ public class FraccionesPOO{
         frac02.suma(frac01).imprimir();
         System.out.print("3/8 - 4/5 = ");
         frac02.resta(frac01).imprimir();
+
+        System.out.print("3/8 + 4/5 + 6/7 = ");
+        frac02.suma(frac01).suma(frac03).imprimir();
     }
 }

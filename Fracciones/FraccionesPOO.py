@@ -11,15 +11,15 @@ class Fraccion:
         self.denominador = den
 
     def suma(self,A):
-        aux = Fraccion();
+        aux = Fraccion()
         dem = self.denominador * A.denominador
         num = (self.numerador*A.denominador) + (self.denominador*A.numerador)
         aux.initFraccion(num,dem)
-        return aux;
+        return aux
 
     def resta(self,A):
-        dem = self.denominador * A.denominador;
-        num = (self.numerador*A.denominador) - (self.denominador*A.numerador);
+        dem = self.denominador * A.denominador
+        num = (self.numerador*A.denominador) - (self.denominador*A.numerador)
         return Fraccion(num,dem)
 
     def imprimir(self):
