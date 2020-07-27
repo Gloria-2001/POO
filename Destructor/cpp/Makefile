@@ -1,5 +1,5 @@
-run: Persona.o main
-main: main.cpp Persona.o
+run: Personita inicio
+inicio: main.cpp Persona.o
 	g++ main.cpp Persona.o -o main
-Persona.o: Persona.cpp Persona.h
+Personita: Persona.cpp Persona.h
 	g++ Persona.cpp -c
