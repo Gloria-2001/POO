@@ -36,7 +36,7 @@ if __name__ == "__main__":
     aux00 = frac01.resta(frac02)
     aux00 = aux00.imprimir()
     print("4/5 - 3/8 = "+aux00)
-    
+
     print("\n")
 
     print("3/8 + 4/5 = "+frac02.suma(frac01).imprimir())
