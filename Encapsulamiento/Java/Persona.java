@@ -23,11 +23,11 @@ public class Persona{
         System.out.println("Hola, yo soy "+this.nombre);
     }
 
-    String getCURP(){   // getter
+    public String getCURP(){   // getter
         return curp;
     }
     
-    void setCURP(String newCurp){   // setter
+    public void setCURP(String newCurp){   // setter
         this.curp = newCurp;
     }
 }
