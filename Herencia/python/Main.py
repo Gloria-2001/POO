@@ -23,3 +23,4 @@ if __name__ == "__main__":
     print(v00.timbre)
     v00.tocarTimbre()
     print(v00.timbre)
+    v00.gritar()
