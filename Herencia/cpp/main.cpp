@@ -24,6 +24,7 @@ int main(int argc, char *argv[]){
     v01.tocarTimbre();
     cout<<v01.timbre<<endl;
     v01.gritar();
+    cout<<v01.puertas<<endl;
 
     return 0;
 }
