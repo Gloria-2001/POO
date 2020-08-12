@@ -1,9 +1,9 @@
-Crear una clase padre llamada 'Persona' donde todos sus metodos y atributos son privados, lo cuales son:
+Crear una clase padre llamada 'Persona' donde todos atributos son privados, lo cuales son:
     Atributos:
         - nombre
         - edad
     Metodos:
-        - darNombre (Verificar)
+        - darNombre (publico)
 
 Despues crear dos clases hijas llamadas 'Superheroe' y 'Supervillano', que tendran las sig. caracteristicas:
     Atributos:
