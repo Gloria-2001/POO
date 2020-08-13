@@ -3,7 +3,7 @@ Crear una clase padre llamada 'Persona' donde todos atributos son privados, lo c
         - nombre
         - edad
     Metodos:
-        - darNombre (publico)
+        - darNombre (publico) - (sinomino de getter)
 
 Despues crear dos clases hijas llamadas 'Superheroe' y 'Supervillano', que tendran las sig. caracteristicas:
     Atributos:
