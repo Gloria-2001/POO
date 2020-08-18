@@ -16,10 +16,11 @@ public class InputDialog{
 
         // JOptionPane.showInputDialog(padre, Mensaje, Titulo, icono);
         String res00 = JOptionPane.showInputDialog(null, "Ingrese su nombre", "Hola mundo", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println(res00);
 
-
-        // JOptionPane.showOptionDialog(padre, mensaje, titulo, tipo de seleccion, icono, icono_personal, opciones, valor inicial);
+        // JOptionPane.showOptionDialog(padre, mensaje, titulo, icono, icono_personal, opciones, valor inicial);
         String resp01 = (String) JOptionPane.showInputDialog(null, "Elija una opcion", "Hola mundo", JOptionPane.QUESTION_MESSAGE, null, msj.opc, msj.opc[0]);
+        System.out.println(resp01);
         
     }
 

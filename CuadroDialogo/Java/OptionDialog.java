@@ -3,9 +3,9 @@ import javax.swing.JOptionPane;
 public class OptionDialog{
 
     public String opc[] = {
-        "Opcion A",
-        "Opcion B",
-        "Opcion C"
+        "Cancelar",
+        "Si",
+        "No"
     };
 
     public OptionDialog(){
@@ -14,8 +14,16 @@ public class OptionDialog{
     public static void main(String[] args) {
         OptionDialog msj = new OptionDialog();
 
-        // JOptionPane.showOptionDialog(padre, mensaje, titulo, tipo de seleccion, tipo de mensaje, icono_personal, opciones, valor inicial);
-        JOptionPane.showOptionDialog(null, 
+        /* JOptionPane.showOptionDialog(Componente_ padre,
+                String mensaje,
+                String titulo,
+                tipoDeSeleccion,
+                Icono JOptionPane,
+                icono_personal,
+                opciones,
+                valor inicial);
+        */
+        int res = JOptionPane.showOptionDialog(null, 
                                     "Hola mundo", 
                                     "Clase OptionDialog", 
                                     JOptionPane.DEFAULT_OPTION, 
@@ -24,6 +32,7 @@ public class OptionDialog{
                                     msj.opc, 
                                     msj.opc[0]);
         
+        System.out.println(msj.opc[res]);
     }
 
 }
