@@ -9,10 +9,25 @@ import javax.swing.*;
 */
 
 public class MiVentana extends JFrame{
-    public static void main(String[] args) {
-        JFrame f = new JFrame("Hola mundo");
-        f.setSize(450,450);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setVisible(true);
+
+    public MiVentana(String title){
+        super(title);
+        this.setSize(450,450);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+    public void run(){
+        this.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        MiVentana v = new MiVentana("Hola mundo");
+        v.run();
+    }
+    // public static void main(String[] args) {
+    //     JFrame f = new JFrame("Hola mundo");
+    //     f.setSize(450,450);
+    //     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //     f.setVisible(true);
+    // }
 }
