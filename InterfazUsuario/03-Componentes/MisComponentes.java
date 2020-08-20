@@ -18,7 +18,7 @@ public class MisComponentes extends JFrame{
 
         this.etiqueta = new JLabel("Nombre");
         this.texto = new JTextField(20);
-        this.boton = new JButton("Aceptar");
+        this.boton = new JButton("Saludar");
     }
 
     public void init(){
