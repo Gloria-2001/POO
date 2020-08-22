@@ -1,0 +1,17 @@
+Que se quede fijo tamaño de la pantalla:
+    setResizable(false)
+
+Pasar de string a entero:
+    numero = Integer.parseInt(cadena)
+
+Pasar de entero a string:
+    cadena = String.valueOf(numero)
+
+Poner texto en un objeto:
+    Objeto.setText("Nuevo texto")
+
+Obtener texto en un objeto:
+    cadena = Objeto.getText()
+
+Ponerle una imagen a un objeto:
+    Objeto.setIcon(new ImageIcon("URL de la imagen"));
