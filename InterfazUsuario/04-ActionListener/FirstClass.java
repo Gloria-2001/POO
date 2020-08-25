@@ -20,6 +20,11 @@ public class FirstClass extends JFrame{
 
     private void init(){
         this.cp.add(this.boton);
+        // Escucha es = new Escucha();
+        /*
+            El metodo addActionListener recibe un objeto que 
+            tiene implementada la interfaz de ActionListener
+        */
         this.boton.addActionListener(new Escucha());
     }
 
