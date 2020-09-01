@@ -30,7 +30,7 @@ public class MaquinaArray extends JFrame implements ActionListener{
     private void init(){
         for(int i=0; i<3; i++){
             JButton aux = new JButton();
-            aux.setIcon(new ImageIcon(img[i]));
+            aux.setIcon(new ImageIcon("../img/"+img[i]));
             aux.addActionListener(this);
             cp.add(aux);
             animales[i] = aux;
@@ -44,7 +44,7 @@ public class MaquinaArray extends JFrame implements ActionListener{
         ImageIcon aux;
         for(int i=0; i<3; i++){
             if(e.getSource() == animales[i]){
-                aux = new ImageIcon(img[i]);
+                aux = new ImageIcon("../img/"+img[i]);
                 animal.setIcon(aux);
                 break;
             }

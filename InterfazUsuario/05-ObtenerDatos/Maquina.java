@@ -27,15 +27,15 @@ public class Maquina extends JFrame implements ActionListener{
     }
 
     private void init(){
-        perro.setIcon(new ImageIcon("perro.jpg"));
+        perro.setIcon(new ImageIcon("../img/perro.jpg"));
         perro.addActionListener(this);
         cp.add(perro);
 
-        gato.setIcon(new ImageIcon("gato.jpg"));
+        gato.setIcon(new ImageIcon("../img/gato.jpg"));
         gato.addActionListener(this);
         cp.add(gato);
 
-        huron.setIcon(new ImageIcon("huron.jpg"));
+        huron.setIcon(new ImageIcon("../img/huron.jpg"));
         huron.addActionListener(this);
         cp.add(huron);
 
@@ -47,11 +47,11 @@ public class Maquina extends JFrame implements ActionListener{
         ImageIcon aux;
         animal.setText("");
         if(e.getSource() == perro){
-            aux = new ImageIcon("perro.jpg");
+            aux = new ImageIcon("../img/perro.jpg");
         }else if(e.getSource() == gato){
-            aux = new ImageIcon("gato.jpg");
+            aux = new ImageIcon("../img/gato.jpg");
         }else{
-            aux = new ImageIcon("huron.jpg");
+            aux = new ImageIcon("../img/huron.jpg");
         }
         animal.setIcon(aux);
     }
