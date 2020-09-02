@@ -27,6 +27,7 @@ public class CheckBox00 extends JFrame implements ActionListener{
     }
 
     private void init(){
+        texto.setFont(new Font("Plain", Font.BOLD, 20));
         crearPanelCheck();
         panelPrin.add(texto);
         cp.add(panelPrin,BorderLayout.CENTER);
