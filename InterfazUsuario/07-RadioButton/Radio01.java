@@ -8,7 +8,7 @@ public class Radio01 extends JFrame implements ActionListener{
     private Container cp;
     private ButtonGroup bg;
     private JLabel ac;
-    private String animal[] = {"perro", "gato", "huron"};
+    private String animal[] = {"perro", "gato", "huron","delfin","vaca"};
 
     public Radio01(){
         super("Radio Button");
@@ -18,7 +18,7 @@ public class Radio01 extends JFrame implements ActionListener{
         cp = getContentPane();
         cp.setLayout(new FlowLayout());
 
-        radios = new JRadioButton[3];
+        radios = new JRadioButton[5];
         ac = new JLabel("_____Mostrar_____");
 
         bg = new ButtonGroup();
@@ -27,7 +27,7 @@ public class Radio01 extends JFrame implements ActionListener{
     }
 
     private void init(){
-        for(int i=0; i<3; i++){
+        for(int i=0; i<5; i++){
             radios[i] = new JRadioButton(animal[i]);
             radios[i].addActionListener(this);
             bg.add(radios[i]);
