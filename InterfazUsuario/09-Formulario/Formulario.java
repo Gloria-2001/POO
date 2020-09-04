@@ -27,7 +27,7 @@ public class Formulario extends JFrame implements ActionListener{
         user = new JTextField();
         contra = new JPasswordField();
         foto = new JLabel();
-        urlFoto = new JLabel("..\\img\\no-image.jpg");
+        urlFoto = new JLabel("../img/no-image.jpg");
         aceptar = new JCheckBox("He leido los terminos y condiciones");
 
         init();
@@ -106,7 +106,7 @@ public class Formulario extends JFrame implements ActionListener{
     private void limpiarCampos(){
         user.setText("");
         contra.setText("");
-        urlFoto.setText("..\\img\\no-image.jpg");
+        urlFoto.setText("../img/no-image.jpg");
         foto.setIcon(myImage());
         aceptar.setSelected(false);
     }
