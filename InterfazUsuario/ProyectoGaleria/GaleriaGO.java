@@ -12,6 +12,7 @@ public class GaleriaGO extends JFrame implements ActionListener{
     private Container cp;
     public JLabel total;
     public JLabel actual; 
+    public JLabel etiqueta;
   
     public GaleriaGO(String title){
         super(title);
@@ -30,53 +31,49 @@ public class GaleriaGO extends JFrame implements ActionListener{
     }
 
     private void init(){
-            JPanel aux=createPanelNumeros();
-            createPanelBotones(aux);
-            createPanelImagen(aux);
+            createPanelNumeros();
+            createPanelBotones();
+            createPanelImagen();
             this.boton.addActionListener(this);
             this.boton1.addActionListener(this);
     }
 
-    private JPanel createPanelNumeros(){
+    private void createPanelNumeros(){
         JPanel panelNumero = new JPanel();
         panelNumero.setLayout(new FlowLayout());
         panelNumero.add(actual); panelNumero.add(new JLabel("/"));
         panelNumero.add(total);
         cp.add(panelNumero, BorderLayout.SOUTH);
-        return panelNumero;
     } 
     
-    private void createPanelBotones(JPanel p){ 
+    private void createPanelBotones(){ 
         JPanel panel = new JPanel();
-        GridLayout gl = new GridLayout(3,3); 
-        panel.setLayout(gl);
         panel.setLayout(new FlowLayout());
         panel.add(boton1);
         panel.add(boton);
         cp.add(panel, BorderLayout.WEST); 
     }
 
-    private JPanel createPanelImagen(JPanel p){
+    private void createPanelImagen(){
         JPanel panel = new JPanel();
         ImageIcon imagen = new ImageIcon("img/pic1.jpg");
-        JLabel et = new JLabel(imagen);
-        panel.add(et);
+        etiqueta = new JLabel(imagen);
+        panel.add(etiqueta);
         cp.add(panel, BorderLayout.CENTER);
-        return panel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e){          
-        int num=1;
-        if(e.getActionCommand() == ">"){
-            actual.getText();
+        int num = 1;
+        if(e.getSource() == boton){
+            String a = actual.getText();
             while(num<=15){
                 actual.setText(""+num);
                 num=num+1;
             }
         }else{
                 System.out.println("hola");
-            }
+        }
     }
     
     public void run(){
