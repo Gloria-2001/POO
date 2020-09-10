@@ -1,9 +1,10 @@
 from sys import argv
 
 def leer(name):
-    with open(name, 'r') as fr:
+    with open(name, 'r') as fr:         # fr = open(name,'r')
         for linea in fr.readlines():
             print(linea)
+    # fr.close()
 
 def escibir(name1, name2):
     with open(name1, 'r') as fr:

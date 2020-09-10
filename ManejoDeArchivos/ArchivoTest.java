@@ -6,6 +6,12 @@ public class ArchivoTest{
     private File inputFile;
     private File outputFile;
 
+    // try {
+        
+    // } catch (Exception exp) {
+    //     //TODO: handle exception
+    // }
+
     public void leer(String name){
         try{
             // Se crea y se abre un fichero.
@@ -19,7 +25,7 @@ public class ArchivoTest{
             // Se lee linea por linea el archivo
             String linea;
             linea = br.readLine();
-            while( linea != null){
+            while(linea != null){
                 System.out.println(linea);
                 linea = br.readLine();
             }
@@ -101,7 +107,7 @@ public class ArchivoTest{
 
         switch (opc) {
             case 1:
-                at.leer(args[1]);    
+                at.leer(args[1]);
             break;
             case 2:
                 at.escribir(args[1], args[2]);
