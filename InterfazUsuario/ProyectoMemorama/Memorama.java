@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 import java.util.Stack;
 import java.awt.image.BufferedImage;
 
@@ -14,7 +13,7 @@ public class Memorama extends JFrame implements ActionListener{
     };
     private JButton cartas[];
     private String sCartas[];
-    private Stack<Integer> posiciones;
+    private Stack<Integer> posiciones;  // entero; similar a int; Integer es un objeto
     private Container cp;
     private int numCartas;
     private int volteadas;
@@ -31,9 +30,9 @@ public class Memorama extends JFrame implements ActionListener{
         cp = getContentPane();
         numCartas = 12;
         cartas = new JButton[12];           // Cartas del juego
-        sCartas = new String[12];           // Nombre de la imagen
+        sCartas = new String[12];           // Nombre de la imagen en juego
         posiciones = new Stack<Integer>();  // Posiciones de las cartas
-        volteadas = numVolteada = 0;        // Control para el número de artas a voltear en el turno
+        volteadas = numVolteada = 0;        // Control para el número de cartas a voltear en el turno
         delay = new Timer(500,this);
         imgNull = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
 
@@ -57,13 +56,16 @@ public class Memorama extends JFrame implements ActionListener{
         int a;
         while(true){
             a = (int) Math.floor(Math.random()*numCartas);
+            // a = 9
             if(posiciones.search(a) == -1){
                 posiciones.push(a);
                 break;
             }
         }
         JButton aa = new JButton("");
+        // sCartas[9] = animales[0] = "perro.jpg"
         sCartas[a] = animales[index];
+        // cartas[9] = nuevo Boton
         cartas[a] = aa;
     }
 
@@ -73,9 +75,8 @@ public class Memorama extends JFrame implements ActionListener{
         panel.setLayout(gl);
 
         for(int i=0; i<numCartas; i++){
-            JButton aux = cartas[i];
-            aux.setActionCommand(String.valueOf(i));
-            aux.addActionListener(this);
+            cartas[i].setActionCommand(String.valueOf(i));
+            cartas[i].addActionListener(this);
             panel.add(cartas[i]);
         }
 
@@ -103,14 +104,18 @@ public class Memorama extends JFrame implements ActionListener{
 
     public void accionarCarta(int index){
         if(volteadas == 2){
+            // cartas[6].setIcon(new ImageIcon(sCartas[6]));
             cartas[index].setIcon(new ImageIcon(sCartas[index]));
+            // sCartas[6].equals(sCartas[0])
             if(! sCartas[index].equals(sCartas[posiciones.peek()])){
                 posiciones.push(index);
                 delay.setRepeats(false);
                 delay.start();
             }else{
+                // cartas[1].setEnabled(false);
                 cartas[index].setEnabled(false);
                 int a = posiciones.pop();
+                // cartas[0].setenabled(false);
                 cartas[a].setEnabled(false);
                 numVolteada++;
                 if(numVolteada == numCartas/2){
@@ -121,7 +126,8 @@ public class Memorama extends JFrame implements ActionListener{
             }
             volteadas = 0;
         }else{
-            posiciones.push(index);
+            posiciones.push(index); // 0
+            // cartas[0].setIcon(new ImageIcon(sCartas[0]));
             cartas[index].setIcon(new ImageIcon(sCartas[index]));
         }
     }
