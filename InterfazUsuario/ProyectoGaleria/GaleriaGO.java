@@ -13,6 +13,7 @@ public class GaleriaGO extends JFrame implements ActionListener{
     public JLabel total;
     public JLabel actual; 
     public JLabel etiqueta;
+    public int cont=0;
   
     public GaleriaGO(String title){
         super(title);
@@ -64,15 +65,24 @@ public class GaleriaGO extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e){          
-        int num = 1;
-        if(e.getSource() == boton){
-            String a = actual.getText();
-            while(num<=15){
-                actual.setText(""+num);
-                num=num+1;
-            }
-        }else{
-                System.out.println("hola");
+        String cad;
+
+        if(e.getSource() == boton && cont<=15){
+            actual.getText();
+            cad = String.valueOf(cont);
+            etiqueta.setIcon(new ImageIcon("img/pic"+cad+".jpg"));
+            actual.setText(""+cont);
+            cont++;
+        }else if(e.getSource() == boton1 && cont>1){
+            cont--;
+            actual.getText();
+            cad = String.valueOf(cont);
+            etiqueta.setIcon(new ImageIcon("img/pic"+cad+".jpg"));
+            actual.setText(""+cont);
+        }if(cont==16){
+            cont=1;
+        }if(cont==0){
+            cont=15;
         }
     }
     
