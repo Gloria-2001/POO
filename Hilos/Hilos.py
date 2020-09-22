@@ -13,10 +13,11 @@ def contar():
     try:
         while i<10:
             logging.debug(f'{i}')
-            #print(f'{threading.current_thread().name} : {i}')
+            # print(f'{threading.current_thread().name} : {i}')
             time.sleep(random.random())
             i += 1
-        print(f'{threading.current_thread().name} Terminado')
+        logging.debug('Terminado')
+        # print(f'{threading.current_thread().name} Terminado')
     except Exception as e:
         print(e)
 
@@ -27,5 +28,8 @@ if __name__ == '__main__':
 
     hilo01.start()
     hilo02.start()
-    
+
+    hilo01.join()
+    hilo02.join()
+
     print('Hilo principal terminado')

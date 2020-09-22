@@ -8,10 +8,10 @@ public class Hilos extends Thread{
 
     // Metodo para correr una tarea del Thread
     public void run(){
-        for(int i =0; i<10; i++){
+        for(int i = 0; i<10; i++){
             System.out.println(getName() + " " + i);
             try {
-                sleep((long) 1);
+                sleep((long) Math.random());
             } catch (Exception e) {
                 System.out.println(e);
             }
