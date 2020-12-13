@@ -1,77 +1,72 @@
 import java.io.*;
 import java.net.*;
 
-public class Servidor{
-    private int puerto;     // Puerto de conexión
-    private String host;    // Host de conexión
-    protected String msgDeCliente; //Mensajes entrantes (recibidos) en el servidor
-    protected ServerSocket ss; //Socket del servidor
-    protected Socket sc; //Socket del cliente
-    protected DataOutputStream salidaServidor, salidaCliente; //Flujo de datos de salida
+public class Servidor{  
+    
+    private int port;
+    private ServerSocket ss;
+    private Socket sc;
+    private BufferedReader entrada;
+    private PrintWriter salida;
 
     public Servidor(){
-        puerto = 1234;
-        host = "localhost";
+        port = 1234;
     }
 
     public Servidor(int p){
-        puerto = p;
-        host = "localhost";
-    }
-
-    public Servidor(int p, String h){
-        puerto = p;
-        host = h;
+        port = p;
     }
 
     public void init(){
-        try{
-            ss = new ServerSocket(puerto);  // Inicia el socket del servidor en un puerto dado
-            sc = new Socket();  // Socket para el cliente que quiera respuesta
-            System.out.println("Conexion iniciada");   
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void cerrar(){
-        try{
-            System.out.println("Conexion finalizada");
-            ss.close();   
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void correrServidor(){
         try {
-            System.out.println("Esperando..."); //Esperando conexión
-            sc = ss.accept(); //Accept comienza el socket del cliente y espera una conexión desde un cliente
-            System.out.println("Cliente en línea");
-            
-            //Se obtiene el flujo de salida del cliente para enviarle mensajes
-            salidaCliente = new DataOutputStream(sc.getOutputStream());
-            
-            //Se le envía un mensaje al cliente usando su flujo de salida
-            salidaCliente.writeUTF("Petición recibida y aceptada");
-            
-            //Se obtiene el flujo entrante desde el cliente
-            BufferedReader entrada = new BufferedReader(new InputStreamReader(sc.getInputStream()));
-            
-            //Mientras haya mensajes desde el cliente
-            while((msgDeCliente = entrada.readLine()) != null){
-                System.out.println(msgDeCliente); //Se muestra por pantalla el mensaje recibido
-            }
-        }catch(Exception e){
+            ss = new ServerSocket(port);//Se crea el socket para el servidor en puerto 1234
+            sc = new Socket(); //Socket para el cliente            
+        } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.exit(0);
         }
     }
 
-    public static void main(String[] args){
-        Servidor server = new Servidor();
-        server.init();
-        server.correrServidor();
-        server.cerrar();
+    public void correrServidor() throws IOException{
+        System.out.println("Esperando cliente");
+        try {
+            // Se bloquea hasta que recibe alguna petición de un cliente
+            // abriendo un socket para el cliente
+            sc = ss.accept();
+            System.out.println("Connexión acceptada: "+ sc);
+            
+            // Establece canal de entrada
+            entrada = new BufferedReader(new InputStreamReader(sc.getInputStream()));
+            
+            // Establece canal de salida
+            salida = new PrintWriter(new BufferedWriter(
+                new OutputStreamWriter(
+                sc.getOutputStream())),true);
+            
+            // Hace eco de lo que le proporciona el cliente, hasta que recibe "Adios"
+            while(true){
+                String str = entrada.readLine();
+                System.out.println("Cliente: " + str);
+                salida.println(str);
+                if (str.equals("Adios")) break;
+            }
+
+        } catch (IOException e) {
+            System.out.println("IOException: " + e.getMessage());
+        }  
+        salida.close();
+        entrada.close();
     }
 
+    public void cerrar() throws IOException{
+        sc.close();
+        ss.close();
+    }
+
+    public static void main(String[] args) throws IOException{
+        Servidor s = new Servidor();
+        s.init();
+        s.correrServidor();
+        s.cerrar();
+    }
 }
