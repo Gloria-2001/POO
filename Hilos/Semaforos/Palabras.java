@@ -6,7 +6,8 @@ public class Palabras{
     private Scanner sc = new Scanner(System.in);
 
     public boolean ingresarPalabra(String name) throws InterruptedException{
-        darPaso.acquire();
+        darPaso.acquire();  // Pregunta y obten el recurso
+        // Haces todo el trabajo
         boolean con = true;
         System.out.println("Tu turno "+name);
         System.out.print("Ingresa una palabra: ");
@@ -17,7 +18,7 @@ public class Palabras{
         }else{
             System.out.println("Palabra: "+word+"\nEspera tu siguiente turno "+name+"\n");
         }
-        darPaso.release();
+        darPaso.release();  // Libera el recurso
         return con;
     }
 }
