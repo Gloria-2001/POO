@@ -7,11 +7,12 @@ public class Hilos extends Thread{
     }
 
     // Metodo para correr una tarea del Thread
+    @Override
     public void run(){
-        for(int i = 0; i<10; i++){
-            System.out.println(getName() + " " + i);
+        for(int i = 0; i<5; i++){
             try {
-                sleep((long) Math.random());
+                System.out.println(getName() + " " + i);
+                sleep((int) (Math.random() * 200));
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -24,8 +25,12 @@ public class Hilos extends Thread{
         Hilos dos = new Hilos("dog");
 
         System.out.println("Main corriendo");
-
-        uno.run();    dos.run();
+        try {
+            uno.start();    dos.start();
+            uno.join();     dos.join();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
         System.out.println("Main cerrado");
     }
