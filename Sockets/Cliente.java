@@ -3,15 +3,15 @@ import java.io.*;
 
 public class Cliente{
 
-    private String host;
-    private int port;
-    private Socket sc;
-    private BufferedReader entrada;
-    private PrintWriter salida;
+    private String host;    // IP
+    private int port;       // puerto del servidor
+    private Socket sc;      // Nuestro socket cliente
+    private BufferedReader entrada, fromServer; // Lo que recibimos del servidor
+    private PrintWriter salida; // Lo que mandamos al servidor
 
     public Cliente(){
         port = 1234;
-        host = "localhost";
+        host = "localhost"; // 127.0.0.1
     }
 
     public Cliente(int p){
@@ -36,7 +36,8 @@ public class Cliente{
     public void correrCliente() throws IOException{
         try {
             // Obtenemos el canal de entrada
-            entrada = new BufferedReader(new InputStreamReader(sc.getInputStream()));
+            entrada = new BufferedReader(new InputStreamReader(System.in));
+            fromServer = new BufferedReader(new InputStreamReader(sc.getInputStream()));    // Lo que viene del servidor
             
             // Obtenemos el canal de salida
             salida = new PrintWriter(new BufferedWriter(new 
@@ -45,7 +46,6 @@ public class Cliente{
             System.err.println("No puede establer canales de E/S para la conexión");
             System.exit(0);
         }
-        BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
         String linea;
 
@@ -56,17 +56,17 @@ public class Cliente{
             while (true) {
                 // Leo la entrada del usuario
                 System.out.print("Ingrese una palabra: ");
-                linea = stdIn.readLine();
+                linea = entrada.readLine();
 
                 // La envia al servidor
                 salida.println(linea);
                 
-                // Envía a la salida estándar la respuesta del servidor
-                linea = entrada.readLine();
-                System.out.println("Respuesta del servidor: " + linea);
-                
                 // Si es "Adios" es que finaliza la comunicación
-                if (linea.equals("Adios")) break;
+                if (linea.equals("exit")) break;
+
+                String newLine = fromServer.readLine();
+
+                System.out.println("Respuesta del servidor: " + newLine);
             }
         }catch (IOException e){
             System.out.println("IOException: " + e.getMessage());
@@ -75,7 +75,7 @@ public class Cliente{
         // Libera recursos
         salida.close();
         entrada.close();
-        stdIn.close();
+        fromServer.close();
     }
 
     public void cerrar() throws IOException{
